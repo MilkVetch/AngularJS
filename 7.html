@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directoryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Tutorial - 3</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/directory-4.js"></script>
+</head>
+<!-- <body ng-init="list = ['one','two','three','four']"> -->
+<body ng-controller="directoryController">
+	<a href="index.html">Home</a><br>
+	<input type="text" ng-model="search">
+	<ul>
+		<li class="person-{{item.name | lowercase}}" ng-repeat="item in list | filter:search
+		| orderBy: '-age'
+		| limitTo: 3">
+			{{item.name}} - <span style="color: red">{{item.age | currency:'&yen;':0}}</span>
+		</li>
+	</ul>
+</body>
+</html>

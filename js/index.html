@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Tutorial</title>
+	<script src="js/angular.min.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-init="list = [{id:'1', name: 'Model'},{id:'2', name: 'Repeat'},{id:'3', name: 'Filter'}]">
+	<h1>Angular Tutorial</h1>
+	<input type="text" ng-model="search">
+	<ul>
+		<li ng-repeat="item in list | filter:search">
+			{{item.id}} . <a href="{{item.id}}.html">{{item.name}}</a>
+		</li>
+	</ul>
+</body>
+</html>

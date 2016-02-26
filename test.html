@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="colorApp">
+<head>
+	<meta charset="UTF-8">
+	<title>color selector</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/test.js"></script>
+	<link rel="stylesheet" href="css/color.css">
+</head>
+<body ng-controller="colorController as colorList" style="background: #222">
+	<!-- <input type="text" placeholder="SearchColor" ng-model="search"></input> -->
+	<h1>Colors!</h1>
+
+	<ul>
+		<li ng-repeat="item in colorList.list | filter:search">
+			<span class="name">{{item.name}}:</span></span><span class="color" style="background:{{item.name}}"><!-- {{item.id}} --></span>
+		</li>
+	</ul>
+
+	<br>
+	<form ng-submit="colorList.addColor()">
+		<input type="text" placeholder="ColorName" ng-model="colorList.name">
+		<!-- <input type="text" placeholder="ColorId" ng-model="colorList.id"> -->
+		<input type="submit" value="submit">
+	</form>
+
+</body>
+</html>

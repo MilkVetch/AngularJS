@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directoryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class & ng-click</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/8.js"></script>
+	<style>
+		.home {
+			padding: 0.5em;
+			display: inline-block;
+			background-color: #2980b9;
+			color: white;
+			text-decoration: none;
+			margin-bottom: 20px;
+			transition: background-color 0.3s ease;
+		}
+		.home:hover {
+			background-color: #3498db;
+		}
+
+		button {
+			width: 100px;
+			height: 50px;
+			display: block;
+		}
+		.under-30 {
+			color: white;
+			background-color: red;
+		}
+		.over-30 {
+			color: white;
+			background-color: blue;
+		}
+		.hidden {
+			display: none;
+		}
+
+		ul {
+			padding: 0;
+			font-size: 1.5em;
+		}
+
+		ul li {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body ng-controller="directoryController as dirList">
+	<a class="home" href="index.html">Home</a>
+	<button ng-show="!dirList.toggle" ng-click="dirList.toggle = true">Open</button>
+	<button ng-show="dirList.toggle"  ng-click="dirList.toggle = false">Close</button>
+	<ul ng-class="{'hidden': !dirList.toggle}">
+		<li ng-repeat="item in dirList.list" ng-class="item.age > 29 ? 'over-30' : 'under-30'">
+			{{item.name}} - {{item.age}}
+		</li>
+	</ul>
+
+	<p>ng-if="!dirList.toggle"表示，当这个变量为假的时候，该元素出现，否则元素被删除</p>
+	<p>ng-show="!dirList.toggle"与if相似，但是并不会把元素删除，而是用一个类将其影藏了</p>
+</body>
+</html>
+

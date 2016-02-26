@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dirApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Img-Src</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/10.js"></script>
+	<style>
+		ul {
+			list-style: none;
+		}
+		ul li {
+			display: flex;
+			margin-bottom: 10px;
+		}
+
+		ul li span {
+			display: inline-block;
+			line-height: 50px;
+		}
+		ul li img {
+			margin-right: 10px;
+			border-radius: 50%;
+			width: 50px;
+			height: 50px;
+		}
+
+	</style>
+</head>
+<body ng-controller="dirController as dirList">
+	<ul>
+		<li ng-repeat="item in dirList.list">
+			<img ng-src="{{item.img}}" />
+			<span>{{item.name}} - {{item.age}}</span>
+		</li>
+	</ul>
+</body>
+</html>

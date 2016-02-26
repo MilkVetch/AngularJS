@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directoryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class & ng-click</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/8.js"></script>
+	<style>
+		.home {
+			padding: 0.5em;
+		}
+		.under-30 {
+			color: white;
+			background-color: red;
+		}
+		.over-30 {
+			color: white;
+			background-color: blue;
+		}
+		.hidden {
+			display: none;
+		}
+
+		ul {
+			padding: 0;
+			font-size: 1.5em;
+		}
+
+		ul li {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body ng-controller="directoryController as dirList">
+	<a class="home" href="index.html">Home</a>
+	<button ng-click="dirList.toggle = true" style="display:block">Click Me</button>
+	<ul ng-class="{'hidden': !dirList.toggle}">
+		<li ng-repeat="item in dirList.list" ng-class="item.age > 29 ? 'over-30' : 'under-30'">
+			{{item.name}} - {{item.age}}
+		</li>
+	</ul>
+</body>
+</html>

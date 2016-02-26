@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Tutorial - 3</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<!-- <body ng-init="list = ['one','two','three','four']"> -->
+<body ng-init="list = [{name:'Khee', age: 27},{name:'King', age: 48},{name:'Gold', age: 50},{name:'Poem', age: 50}]">
+	<a href="index.html">Home</a><br>
+	<input type="text" ng-model="search">
+	<ul>
+		<li ng-repeat="item in list | filter:search">
+			{{item.name}} - <span style="color: red">{{item.age}}</span>
+		</li>
+	</ul>
+</body>
+</html>

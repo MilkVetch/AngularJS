@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="directoryApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Angular Tutorial - 3</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/directory-5.js"></script>
+</head>
+<!-- <body ng-init="list = ['one','two','three','four']"> -->
+<body ng-controller="directoryController">
+	<a href="index.html">Home</a><br>
+	<input type="text" ng-model="search">
+	<ul>
+		<li ng-repeat="item in list | filter:search">
+			{{item.name}} - <span style="color: red">{{item.age}}</span>
+		</li>
+	</ul>
+	<form ng-submit="addPerson()">
+		<input type="text" placeholder="Name" ng-model="name">
+		<input type="number" placeholder="Age" ng-model="age">
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
